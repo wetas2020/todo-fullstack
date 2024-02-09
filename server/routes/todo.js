@@ -12,6 +12,25 @@ router.get('/', (req, res) => {
         });
 });
 
+router.get('/:id', (req, res) => {
+    const id = req.params.id;
+    if (!isNaN(id)) {
+        knex('todo')
+            .select()
+            .where('id', id)
+            .first()
+            .then((todo) => {
+                console.log(todo);
+                res.render('single', todo);
+            });
+    } else {
+        res.status(500);
+        res.render('error', {
+            message: 'Invalid id'
+        });
+    }
+});
+
 router.get('/new', (req, res) => {
     res.render('new');
 });
