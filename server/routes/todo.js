@@ -12,6 +12,10 @@ router.get('/', (req, res) => {
         });
 });
 
+router.get('/new', (req, res) => {
+    res.render('new');
+});
+
 router.get('/:id', (req, res) => {
     const id = req.params.id;
     if (!isNaN(id)) {
@@ -29,10 +33,6 @@ router.get('/:id', (req, res) => {
             message: 'Invalid id'
         });
     }
-});
-
-router.get('/new', (req, res) => {
-    res.render('new');
 });
 
 router.get('/:id/edit', (req, res) => {

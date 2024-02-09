@@ -2,11 +2,15 @@
 
 We'll be using:
 
--   postgres for our database
+-   mysql for our database
 -   knex.js for our database migrations, seeds and queries.
 -   express.js for our routes and rendering
 -   handlebars.js for our server side view templates
 -   boostrap for our UI
+
+## The Reason behind this project
+
+The Reason behind this project, is to learn knex and handlebars
 
 ## Full Stack Check List
 
