@@ -54,6 +54,28 @@ router.get('/:id/edit', (req, res) => {
     }
 });
 
+router.put('/:id', (req, res) => {
+    const id = req.params.id;
+    if (validTodo(req.body)) {
+        knex('todo')
+            .where('id', id)
+            .update({
+                title: req.body.title,
+                priority: req.body.priority,
+                description: req.body.description,
+                date: new Date()
+            })
+            .then(() => {
+                res.redirect('/todo/' + id);
+            });
+    } else {
+        res.status(500);
+        res.render('error', {
+            message: 'Invalid todo'
+        });
+    }
+});
+
 validTodo = (todo) => {
     return (
         typeof todo.title == 'string' &&
