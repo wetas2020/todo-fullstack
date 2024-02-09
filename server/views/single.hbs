@@ -8,10 +8,12 @@
         {{description}}
     </div>
     <div class='panel-footer' style='margin-bottom: 1rem;'>
-        {{!-- <a href='/todo/{{id}}/edit' class='btn btn-primary'>Edit</a>
-        <a href='/todo/{{id}}/delete' class='btn btn-danger'>Delete</a> --}}
         {{date}}
     </div>
-    <a href='/todo/{{id}}/edit' class='btn btn-warning'>Edit</a>
-    <a href='/todo/{{id}}/delete' class='btn btn-danger'>Delete</a>
+
+    <form action='/todo/{{id}}?_method=DELETE' method='post'>
+        <a href='/todo/{{id}}/edit' class='btn btn-warning'>Edit</a>
+        <button type='submit' class='btn btn-danger'>Delete</button>
+    </form>
+
 </div>
