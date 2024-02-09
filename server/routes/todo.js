@@ -35,6 +35,25 @@ router.get('/new', (req, res) => {
     res.render('new');
 });
 
+router.get('/:id/edit', (req, res) => {
+    // get the todo with id int the url
+    const id = req.params.id;
+    if (!isNaN(id)) {
+        knex('todo')
+            .select()
+            .where('id', id)
+            .first()
+            .then((todo) => {
+                res.render('edit', todo);
+            });
+    } else {
+        res.status(500);
+        res.render('error', {
+            message: 'Invalid id'
+        });
+    }
+});
+
 validTodo = (todo) => {
     return (
         typeof todo.title == 'string' &&

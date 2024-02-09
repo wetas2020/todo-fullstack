@@ -1,0 +1,48 @@
+<form class='form' action='/todo' method='put'>
+    <div class='form-group'>
+        <label for='title'><strong>Title</strong></label>
+        <input
+            value='{{title}}'
+            class='form-control'
+            type='text'
+            id='title'
+            name='title'
+            placeholder='New Todo'
+            style='margin-top: 5px;'
+        />
+    </div>
+    <div class='form-group' style='margin-top: 1rem;'>
+        <label for='description'><strong>Description</strong></label>
+        <textarea
+            value='{{description}}'
+            class='form-control'
+            id='description'
+            name='description'
+            placeholder='Description'
+            style='margin-top: 5px;'
+        ></textarea>
+    </div>
+    {{!-- <div class='form-group' style='margin-top: 1rem;'>
+        <label for='priority'><strong>Priority</strong></label>
+        <select class='form-control' id='priority' name='priority' style='margin-top: 5px;'>
+
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
+
+        </select>
+    </div> --}}
+    <div class='form-group' style='margin-top: 1rem;'>
+        <label for='priority'><strong>Priority</strong></label>
+        <select class='form-control' id='priority' name='priority' style='margin-top: 5px;'>
+            <option value='1' {{#if (eq priority 1)}}selected{{/if}}>1</option>
+            <option value='2' {{#if (eq priority 2)}}selected{{/if}}>2</option>
+            <option value='3' {{#if (eq priority 3)}}selected{{/if}}>3</option>
+            <option value='4' {{#if (eq priority 4)}}selected{{/if}}>4</option>
+            <option value='5' {{#if (eq priority 5)}}selected{{/if}}>5</option>
+        </select>
+    </div>
+    <button type='submit' class='btn btn-danger' style='margin-top: 1rem;'>Update</button>
+</form>
